@@ -2,6 +2,10 @@
   "name": "Curso",
   "displayName": "Curso",
   "expo": {
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#ffffff"
+    },
     "name": "Curso",
     "slug": "Curso",
     "version": "1.0.0",
