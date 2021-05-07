@@ -10,7 +10,7 @@ db.transaction((tx) => {
   //<<<<<<<<<<<<<<<<<<<<<<<< USE ISSO APENAS DURANTE OS TESTES!!! >>>>>>>>>>>>>>>>>>>>>>>
 
   tx.executeSql(
-    `CREATE TABLE IF NOT EXISTS alunos (id INTEGER PRIMARY KEY AUTOINCREMENT , nome TEXT, nota1 FLOAT, nota2 FLOAT);`
+    `CREATE TABLE IF NOT EXISTS alunos (id INTEGER PRIMARY KEY AUTOINCREMENT , nome TEXT UNIQUE, nota1 FLOAT, nota2 FLOAT);`
   );
 });
 
