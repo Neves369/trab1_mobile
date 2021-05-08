@@ -3,22 +3,30 @@ import {
   Text,
   View,
   ScrollView,
-  TouchableOpacity,
   RefreshControl,
-  SafeAreaView,
-  FlatList
+  FlatList,
+  Animated,
+  Easing,
+  ImageBackground
 } from 'react-native';
 import InsertModal from '../components/Modais/Inserir/modal_inserir';
 import { EditarModal } from '../components/Modais/Editar/modal_editar';
 import Aluno from '../services/sqlite/Alunos';
 import styles from './style';
+import logo from '../assets/image/logo.png';
+import backgrourd from '../assets/image/bk.png'
 import Icon from 'react-native-vector-icons/AntDesign';
-
 
 
 const principal = () =>{
     const [refreshing, setRefreshing] = useState(false);
     const [lista, setLista] = useState([]);
+
+    const [spinAnim] = useState(new Animated.Value(0));
+    const spin = spinAnim.interpolate({
+      inputRange: [0, 1],
+      outputRange: ['0deg', '360deg'],
+    });
 
     const listaAlunos = (aluno) => {
         console.log(aluno)
@@ -32,7 +40,17 @@ const principal = () =>{
     }
     
     useEffect(() => {
-      deleteAluno()
+      deleteAluno(),
+      Animated.loop(
+        Animated.timing(spinAnim, {
+          toValue: 1,
+          duration: 10000,
+          easing: Easing.linear,
+          useNativeDriver: false,
+        }),
+      ).start();
+  
+
     }, []);
 
     useEffect(() => {
@@ -55,7 +73,7 @@ const principal = () =>{
 
     return(
 
-        <SafeAreaView style={styles.container}>
+        <ImageBackground source={backgrourd}  style={styles.container}>
           
           <ScrollView
             contentContainerStyle={styles.scrollView}
@@ -64,11 +82,16 @@ const principal = () =>{
             }
           >
             <View style={styles.header}>
+              <Animated.Image 
+                source={logo} 
+                style={{height: 80, width: 80, marginRight: 20, marginLeft: -45, transform: [{rotate: spin}]}} 
+                resizeMode="contain"
+              />
               <Text style={styles.title}>Curso de React Native</Text>
             </View>
             
 
-            <View style={styles.main}>
+            <View  style={styles.main}>
               <View style={styles.top}>
                 <Text style={styles.subtitle}>Alunos do curso</Text>
                 <InsertModal />
@@ -77,9 +100,9 @@ const principal = () =>{
               <FlatList 
                 data ={lista}
                 renderItem={({item}) =>  
-                  <TouchableOpacity
+                  <View
                     style={styles.userCard}
-                    // onPress={() => handleTest()}
+                    
                   >
                     
                     <View style={styles.userCardRight}>
@@ -91,24 +114,25 @@ const principal = () =>{
                       >{`Primeira nota: ${item.nota1}`}</Text>
                       <Text
                         style={{ fontSize: 18, fontWeight: '500', color: '#fff' }}
-                      >{`Segunda nota: ${item?.nota2}`}</Text>
+                      >{`Segunda nota: ${item.nota2}`}</Text>
                     </View>
                     <View style={styles.buttons}>
 
                       <EditarModal  item={item}/>
                       <Icon name="closecircleo" 
                         size={30} 
-                        color="#000"
+                        color="#fff"
+                        style={styles.deletar}
                         onPress={()=> deleteAluno(item.id)}
                       />
                     </View>
-                  </TouchableOpacity>
+                  </View>
                 }
 
               />
             </View>
           </ScrollView>
-        </SafeAreaView>
+        </ImageBackground>
     );
 }
 

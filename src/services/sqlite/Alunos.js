@@ -65,56 +65,6 @@ const update = (id, obj) => {
   });
 };
 
-/**
- * BUSCA UM REGISTRO POR MEIO DO ID
- * - Recebe o ID do registro;
- * - Retorna uma Promise:
- *  - O resultado da Promise é o objeto (caso exista);
- *  - Pode retornar erro (reject) caso o ID não exista ou então caso ocorra erro no SQL.
- */
-const find = (id) => {
-  return new Promise((resolve, reject) => {
-    db.transaction((tx) => {
-      //comando SQL modificável
-      tx.executeSql(
-        "SELECT * FROM alunos WHERE id=?;",
-        [id],
-        //-----------------------
-        (_, { rows }) => {
-          if (rows.length > 0) resolve(rows._array[0]);
-          else reject("Obj not found: id=" + id); // nenhum registro encontrado
-        },
-        (_, error) => reject(error) // erro interno em tx.executeSql
-      );
-    });
-  });
-};
-
-/**
- * BUSCA UM REGISTRO POR MEIO DA MARCA (brand)
- * - Recebe a marca do carro;
- * - Retorna uma Promise:
- *  - O resultado da Promise é um array com os objetos encontrados;
- *  - Pode retornar erro (reject) caso o ID não exista ou então caso ocorra erro no SQL;
- *  - Pode retornar um array vazio caso nenhum objeto seja encontrado.
- */
-const findByNome = (nome) => {
-  return new Promise((resolve, reject) => {
-    db.transaction((tx) => {
-      //comando SQL modificável
-      tx.executeSql(
-        "SELECT * FROM alunos WHERE nome LIKE ?;",
-        [nome],
-        //-----------------------
-        (_, { rows }) => {
-          if (rows.length > 0) resolve(rows._array);
-          else reject("Obj not found: nome=" + nome); // nenhum registro encontrado
-        },
-        (_, error) => reject(error) // erro interno em tx.executeSql
-      );
-    });
-  });
-};
 
 /**
  * BUSCA TODOS OS REGISTROS DE UMA DETERMINADA TABELA
@@ -166,8 +116,6 @@ const remove = (id) => {
 export default {
   create,
   update,
-  find,
-  findByNome,
   all,
   remove,
 };

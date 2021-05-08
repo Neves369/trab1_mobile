@@ -30,60 +30,69 @@ export default function(){
             <View style={styles.container}>
                 <Modal
                     visible={visible}
-                    style={styles.modal}
+                    transparent={true}
+                    
                 >
-                    <Text>Nome do aluno:</Text>
-                    <Controller
-                        control={control}
-                        render={({ field: { onChange, onBlur, value } }) => (
-                            <TextInput
-                                style={styles.input}
-                                placeholder={'nome'}
-                                onBlur={onBlur}
-                                onChangeText={value => onChange(value)}
-                                value={value}
-                            />
-                        )}
-                            name="nome"
-                            rules={{ required: true }}
-                            // defaultValue=""
-                    />
-                    {errors.Nome && <Text>Nome requerido.</Text>}
-                    
-                    <Text>Primeira nota:</Text>
-                    <Controller
-                        control={control}
-                        render={({ field: { onChange, onBlur, value } }) => (
-                            <TextInput
-                                style={styles.input}
-                                placeholder={'Primeira nota'}
-                                onBlur={onBlur}
-                                onChangeText={value => onChange(value)}
-                                value={value}
-                            />
-                        )}
-                            name="nota1"
-                            // defaultValue=""
-                    />
-                    
-                    <Text>Segunda nota:</Text>
-                    <Controller
-                        control={control}
-                        render={({ field: { onChange, onBlur, value } }) => (
-                            <TextInput
-                                style={styles.input}
-                                placeholder={'Segunda nota'}
-                                onBlur={onBlur}
-                                onChangeText={value => onChange(value)}
-                                value={value}
-                            />
-                        )}
-                            name="nota2"
-                            // defaultValue=""
-                    />
+                    <View style={styles.modalInsert}>
+                        <View style={styles.header}>
+                            <Text style={styles.title}>Cadastrar Aluno</Text>
+                        </View>
+                        <Text>Nome do aluno:</Text>
+                        <Controller
+                            control={control}
+                            render={({ field: { onChange, onBlur, value } }) => (
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder={'nome'}
+                                    onBlur={onBlur}
+                                    onChangeText={value => onChange(value)}
+                                    value={value}
+                                />
+                            )}
+                                name="nome"
+                                rules={{ required: true }}
+                                // defaultValue=""
+                        />
+                        {errors.Nome && <Text>Nome requerido.</Text>}
+                            
+                        <Text>Primeira nota:</Text>
+                        <Controller
+                            control={control}
+                            render={({ field: { onChange, onBlur, value } }) => (
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder={'Primeira nota'}
+                                    onBlur={onBlur}
+                                    onChangeText={value => onChange(value)}
+                                    value={value}
+                                />
+                            )}
+                                name="nota1"
+                                // defaultValue=""
+                        />
 
-                    <Button title="Submit" onPress={handleSubmit(onSubmit)} />
-                    <Button title="Close" onPress={()=>{setVisible(false)}} />
+                        <Text>Segunda nota:</Text>
+                        <Controller
+                            control={control}
+                            render={({ field: { onChange, onBlur, value } }) => (
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder={'Segunda nota'}
+                                    onBlur={onBlur}
+                                    onChangeText={value => onChange(value)}
+                                    value={value}
+                                />
+                            )}
+                                name="nota2"
+                                // defaultValue=""
+                        />
+                        <View style={styles.buttons}>
+                            <Button title="Fechar"  color="#e76f51"
+                                onPress={()=>{setVisible(false)}} />
+                            <Button title="Salvar" color="#2a9d8f"
+                                onPress={handleSubmit(onSubmit)} />
+                        </View>
+                    </View> 
                 </Modal>
             </View>
         </View>

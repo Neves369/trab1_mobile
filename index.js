@@ -1,4 +1,5 @@
 import { registerRootComponent } from 'expo';
+console.disableYellowBox = true
 
 import App from './src/containers/App';
 

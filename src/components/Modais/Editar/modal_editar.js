@@ -22,67 +22,78 @@ export const EditarModal = (item)=>{
         <View>
             <Icon name="edit" 
                   size={30} 
-                  color="#000"
+                  color="#fff"
                   onPress={()=>{setVisible(true)}}
 
             />
             <View style={styles.container}>
                 <Modal
                     visible={visible}
+                    transparent={true}
                     style={styles.modal}
-                >
-                    <Text>Nome do aluno:</Text>
-                    <Controller
-                        control={control}
-                        render={({ field: { onChange, onBlur, value } }) => (
-                            <TextInput
-                                style={styles.input}
-                                placeholder={'nome'}
-                                onBlur={onBlur}
-                                onChangeText={value => onChange(value)}
-                                value={value}
-                            />
-                        )}
-                            name="nome"
-                            rules={{ required: true }}
-                            defaultValue={item.item.nome}
-                    />
-                    {errors.Nome && <Text>Nome requerido.</Text>}
-                    
-                    <Text>Primeira nota:</Text>
-                    <Controller
-                        control={control}
-                        render={({ field: { onChange, onBlur, value } }) => (
-                            <TextInput
-                                style={styles.input}
-                                placeholder={'Primeira nota'}
-                                onBlur={onBlur}
-                                onChangeText={value => onChange(value)}
-                                value={value}
-                            />
-                        )}
-                            name="nota1"
-                            defaultValue={item.item.nota1}
-                    />
-                    
-                    <Text>Segunda nota:</Text>
-                    <Controller
-                        control={control}
-                        render={({ field: { onChange, onBlur, value } }) => (
-                            <TextInput
-                                style={styles.input}
-                                placeholder={'Segunda nota'}
-                                onBlur={onBlur}
-                                onChangeText={value => onChange(value)}
-                                value={value}
-                            />
-                        )}
-                            name="nota2"
-                            defaultValue={item.item.nota2}
-                    />
 
-                    <Button title="Submit" onPress={handleSubmit(onSubmit)} />
-                    <Button title="Close" onPress={()=>{setVisible(false)}} />
+                >   
+                    <View style={styles.modalEdit}>
+                        <View style={styles.header}>
+                            <Text style={styles.title}>Editar Aluno</Text>
+                        </View>
+                        <Text>Nome do aluno:</Text>
+                        <Controller
+                            control={control}
+                            render={({ field: { onChange, onBlur, value } }) => (
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder={'nome'}
+                                    onBlur={onBlur}
+                                    onChangeText={value => onChange(value)}
+                                    value={value}
+                                />
+                            )}
+                                name="nome"
+                                rules={{ required: true }}
+                                defaultValue={item.item.nome}
+                        />
+                        {errors.Nome && <Text>Nome requerido.</Text>}
+                            
+                        <Text>Primeira nota:</Text>
+                        <Controller
+                            control={control}
+                            render={({ field: { onChange, onBlur, value } }) => (
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder={'Primeira nota'}
+                                    onBlur={onBlur}
+                                    onChangeText={value => onChange(value)}
+                                    value={value}
+                                />
+                            )}
+                                name="nota1"
+                                defaultValue=""
+                        />
+
+                        <Text>Segunda nota:</Text>
+                        <Controller
+                            control={control}
+                            render={({ field: { onChange, onBlur, value } }) => (
+                                <TextInput
+                                    style={styles.input}
+                                    placeholder={'Segunda nota'}
+                                    onBlur={onBlur}
+                                    onChangeText={value => onChange(value)}
+                                    value={value}
+                                />
+                            )}
+                                name="nota2"
+                                defaultValue=""
+                        />
+                        <View style={styles.buttons}>
+                            
+                            <Button title="Fechar" color="#e76f51" style={styles.button}
+                                onPress={()=>{setVisible(false)}} />
+                            <Button title="Editar"color="#e9c46a" style={styles.button}
+                                onPress={handleSubmit(onSubmit)} />
+                        </View>
+                    </View>
                 </Modal>
             </View>
         </View>

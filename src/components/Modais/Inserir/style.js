@@ -14,11 +14,36 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     paddingHorizontal: 10,
   },
-  modal:{
-    backgroundColor: "black",
-    height: 100,
-    width:10,
+  modalInsert:{
+    marginVertical: 190,
+    marginHorizontal: 20,
+    height: 420,
+    borderRadius: 6,
+    alignItems: 'center',
+    backgroundColor: '#d8e2dc',
   },
+  header:{
+    color: 'white',
+    marginBottom: 20,
+    height: 100,
+    width: 355,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#48cae4',
+    borderRadius: 10,
+  },
+  title:{
+    fontSize: 20,
+    fontWeight: '400',
+    color: "white", 
+  },
+  buttons:{
+    marginTop: 75,
+    flexDirection: 'row',
+    paddingHorizontal: 114,
+
+  },
+  
 });
 
 export default styles;

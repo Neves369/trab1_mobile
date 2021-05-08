@@ -3,6 +3,9 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container:{
       flex: 1,
+      resizeMode: "cover",
+      justifyContent: "center",
+      backgroundColor: 'rgba(0,0,0,0.5)',
     },
     scrollView: {
       flex: 1,
@@ -11,14 +14,19 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
     },
     header:{
+      display: 'flex',
+      flexDirection: 'row',
       color: 'white',
-      marginTop: 30,
+      marginTop: 35,
       marginBottom: 20,
       height: 100,
-      paddingHorizontal: 130,
+      paddingTop: 20,
+      paddingBottom: 20,
+      paddingHorizontal: 70,
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#48cae4',
+      borderRadius: 10,
     },
     main: {
       flex: 1,
@@ -71,14 +79,14 @@ const styles = StyleSheet.create({
       borderRadius: 6,
       paddingHorizontal: 10,
     },
-    modal:{
-      backgroundColor: "black",
-      height: 100,
-      width:10,
-    },
     buttons:{
-      paddingRight: 200,
-    }
+      marginLeft: 100,
+      display: 'flex',
+      flexDirection: 'row',
+    },
+    deletar:{
+      marginLeft: 20,
+    },
   });
 
 export default styles;
