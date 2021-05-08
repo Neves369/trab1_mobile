@@ -6,12 +6,13 @@ import {
   TouchableOpacity,
   RefreshControl,
   SafeAreaView,
-  FlatList,
-  Alert 
+  FlatList
 } from 'react-native';
 import InsertModal from '../components/Modais/Inserir/modal_inserir';
+import { EditarModal } from '../components/Modais/Editar/modal_editar';
 import Aluno from '../services/sqlite/Alunos';
 import styles from './style';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 
 
@@ -23,7 +24,16 @@ const principal = () =>{
         console.log(aluno)
         setLista(aluno)
     }
+
+    const deleteAluno = (id) =>{
+      Aluno.remove(id)
+    .then( updated => Aluno.all().then((res) => listaAlunos(res)) )
+    .catch( err => console.log(err) )
+    }
     
+    useEffect(() => {
+      deleteAluno()
+    }, []);
 
     useEffect(() => {
       Aluno.all().then((res) => listaAlunos(res))
@@ -42,7 +52,6 @@ const principal = () =>{
       alunos => console.log(alunos)
     )
 
-      
 
     return(
 
@@ -55,15 +64,14 @@ const principal = () =>{
             }
           >
             <View style={styles.header}>
-              <Text>Curso de React Native</Text>
+              <Text style={styles.title}>Curso de React Native</Text>
             </View>
-
             
 
             <View style={styles.main}>
               <View style={styles.top}>
-                <Text style={styles.title}>Alunos do curso</Text>
-                <InsertModal/>
+                <Text style={styles.subtitle}>Alunos do curso</Text>
+                <InsertModal />
               </View>
               
               <FlatList 
@@ -71,21 +79,31 @@ const principal = () =>{
                 renderItem={({item}) =>  
                   <TouchableOpacity
                     style={styles.userCard}
-                    onPress={() => {
-                      Alert.alert(
-                        `${item.nome} N1: ${item.nota1} N2: ${item.nota2}`
-                      );
-                    }}
+                    // onPress={() => handleTest()}
                   >
+                    
                     <View style={styles.userCardRight}>
                       <Text
                         style={{ fontSize: 18, fontWeight: '500', color: '#fff' }}
                       >{`${item.nome}`}</Text>
                       <Text
                         style={{ fontSize: 18, fontWeight: '500', color: '#fff' }}
-                      >{`Primeira nota: ${item.nota1}  Segunda nota: ${item?.nota2}`}</Text>
+                      >{`Primeira nota: ${item.nota1}`}</Text>
+                      <Text
+                        style={{ fontSize: 18, fontWeight: '500', color: '#fff' }}
+                      >{`Segunda nota: ${item?.nota2}`}</Text>
                     </View>
-                  </TouchableOpacity>}
+                    <View style={styles.buttons}>
+
+                      <EditarModal  item={item}/>
+                      <Icon name="closecircleo" 
+                        size={30} 
+                        color="#000"
+                        onPress={()=> deleteAluno(item.id)}
+                      />
+                    </View>
+                  </TouchableOpacity>
+                }
 
               />
             </View>

@@ -46,7 +46,7 @@ export default function(){
                         )}
                             name="nome"
                             rules={{ required: true }}
-                            defaultValue=""
+                            // defaultValue=""
                     />
                     {errors.Nome && <Text>Nome requerido.</Text>}
                     
@@ -63,7 +63,7 @@ export default function(){
                             />
                         )}
                             name="nota1"
-                            defaultValue=""
+                            // defaultValue=""
                     />
                     
                     <Text>Segunda nota:</Text>
@@ -79,7 +79,7 @@ export default function(){
                             />
                         )}
                             name="nota2"
-                            defaultValue=""
+                            // defaultValue=""
                     />
 
                     <Button title="Submit" onPress={handleSubmit(onSubmit)} />

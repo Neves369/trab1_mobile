@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
       marginTop: 30,
       marginBottom: 20,
       height: 100,
-      paddingHorizontal: 200,
+      paddingHorizontal: 130,
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: '#48cae4',
@@ -41,9 +41,15 @@ const styles = StyleSheet.create({
       fontSize: 20,
       fontWeight: '400',
       color: "white",
+  
+      
+      
+    },
+    subtitle:{
+      fontSize: 20,
+      fontWeight: '400',
+      color: "white",
       paddingRight: 160,
-      
-      
     },
     userCard: {
       backgroundColor: '#2f3542',
@@ -70,6 +76,9 @@ const styles = StyleSheet.create({
       height: 100,
       width:10,
     },
+    buttons:{
+      paddingRight: 200,
+    }
   });
 
 export default styles;
