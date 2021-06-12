@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
     },
     deletar:{
-      marginLeft: 20,
+      marginLeft: 14,
     },
   });
 
