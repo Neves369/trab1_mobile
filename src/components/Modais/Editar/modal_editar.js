@@ -15,7 +15,8 @@ export const EditarModal = (item)=>{
     const onSubmit = data => 
          //update
         Aluno.update( item.item.id, {nome:`${data.nome}`, nota1:`${data.nota1}`, nota2:`${data.nota2}`} )
-        .then( updated => console.log('Aluno updated: '+ updated) )
+        .then( updated => console.log('Aluno updated: '+ updated),
+                          setVisible(false))
         .catch( err => console.log(err) )
 
     return(

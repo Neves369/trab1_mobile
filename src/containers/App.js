@@ -1,11 +1,23 @@
 import React from 'react';
-import Principal from '../pages/single_page_main';
+import Principal from '../pages/index';
 import Login from '../pages/login';
+import { DarkTheme, NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 
-export default function App() {
+const Stack = createStackNavigator();
+
+function App() {
   return (
-    <Login/>
+    <NavigationContainer theme={DarkTheme}>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Principal" component={Principal} />
+        
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
+
+export default App;
 

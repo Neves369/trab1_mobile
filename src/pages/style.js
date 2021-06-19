@@ -1,6 +1,61 @@
 import { StyleSheet } from 'react-native';
 
+
 const styles = StyleSheet.create({
+  // tela de login
+    background:{
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center',
+      // backgroundColor: '#191919'
+    },
+    viewLogo:{
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: '100%',
+
+    },
+    containerLogin:{
+      flex: 1,
+      alignItems: 'center',
+      // justifyContent: 'center',
+      width: '100%',
+      
+    },
+    inputLogin:{
+      width: '90%',
+      height: 44,
+      marginBottom: 23,
+      fontSize: 17,
+      color: '#222',
+      backgroundColor: '#f1f3f6',
+      borderRadius: 6,
+      paddingHorizontal: 10,
+      
+    },
+    btSubmit:{
+      backgroundColor: "#00C2F8",
+      width: '90%',
+      height: 45,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 7,
+    },
+    textSubmit:{
+      color: "#fff",
+      fontSize: 18
+    },
+    btRegister:{
+      marginTop: 15
+    },
+    textRegister:{
+      color: "#5dddff",
+      fontSize: 16
+    },
+
+
+  // tela principal
     container:{
       flex: 1,
       resizeMode: "cover",

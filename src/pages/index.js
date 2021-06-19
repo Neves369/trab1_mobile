@@ -18,7 +18,7 @@ import backgrourd from '../assets/image/bk.png'
 import Icon from 'react-native-vector-icons/AntDesign';
 
 
-const principal = () =>{
+const principal = ({ navigation }) =>{
     const [refreshing, setRefreshing] = useState(false);
     const [lista, setLista] = useState([]);
 
@@ -44,7 +44,7 @@ const principal = () =>{
       Animated.loop(
         Animated.timing(spinAnim, {
           toValue: 1,
-          duration: 10000,
+          duration: 50000,
           easing: Easing.linear,
           useNativeDriver: false,
         }),
