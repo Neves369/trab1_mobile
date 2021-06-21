@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
     flex:1,
     backgroundColor: 'black',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    
   },
   input:{
     width: '97%',

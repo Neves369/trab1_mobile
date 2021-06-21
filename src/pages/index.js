@@ -12,6 +12,7 @@ import {
 import InsertModal from '../components/Modais/Inserir/modal_inserir';
 import { EditarModal } from '../components/Modais/Editar/modal_editar';
 import Aluno from '../services/sqlite/Alunos';
+// import teste from '../services/Api/Alunos';
 import styles from './style';
 import logo from '../assets/image/logo.png';
 import backgrourd from '../assets/image/bk.png'

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import { View, Text, Button, Modal, TextInput} from 'react-native';
+import { View, Text, Button, Modal, TextInput } from 'react-native';
 import { useForm, Controller } from "react-hook-form"
 import Icon from 'react-native-vector-icons/AntDesign';
 import styles from './style';
@@ -10,7 +10,7 @@ import Aluno from '../../../services/sqlite/Alunos';
 export default function(){
     const [visible, setVisible] = useState(false)
     const { control, handleSubmit, formState: { errors } } = useForm();
-    
+
     
     const onSubmit = data => 
         Aluno.create( {nome:`${data.nome}`, nota1:`${data.nota1}`, nota2:`${data.nota2}`} )

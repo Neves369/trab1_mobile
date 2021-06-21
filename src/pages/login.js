@@ -53,8 +53,8 @@ const login = ({ navigation }) =>{
   const onSubmit = data => {
     const { email, senha } = data
 
-    response = axios.post ("http://192.168.0.104:3000/auth/authenticate", {
-    
+    response = axios.post ("http://192.168.0.105:3000/auth/authenticate", 
+    {
     "email": email,
     "senha": senha
     })
