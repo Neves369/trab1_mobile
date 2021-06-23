@@ -16,10 +16,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   modalInsert:{
-    marginVertical: 190,
+    marginVertical: 280,
+
     marginHorizontal: 20,
     height: 420,
-    borderRadius: 6,
+    borderRadius: 8,
     alignItems: 'center',
     backgroundColor: '#d8e2dc',
   },
@@ -30,8 +31,8 @@ const styles = StyleSheet.create({
     width: 355,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#48cae4',
-    borderRadius: 10,
+    backgroundColor: '#47bad1',
+    borderRadius: 6,
   },
   title:{
     fontSize: 20,

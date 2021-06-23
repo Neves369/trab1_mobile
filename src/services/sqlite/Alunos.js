@@ -76,16 +76,16 @@ const update = (id, obj) => {
  */
 const all = () => {
   return new Promise((resolve, reject) => {
-    db.transaction((tx) => {
-      //comando SQL modificável
-      tx.executeSql(
-        "SELECT * FROM alunos;",
-        [],
-        //-----------------------
-        (_, { rows }) => resolve(rows._array),
-        (_, error) => reject(error) // erro interno em tx.executeSql
-      );
-    });
+    // db.transaction((tx) => {
+    //   //comando SQL modificável
+    //   tx.executeSql(
+    //     "SELECT * FROM alunos;",
+    //     [],
+    //     //-----------------------
+    //     (_, { rows }) => resolve(rows._array),
+    //     (_, error) => reject(error) // erro interno em tx.executeSql
+    //   );
+    // });
   });
 };
 

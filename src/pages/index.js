@@ -11,8 +11,7 @@ import {
 } from 'react-native';
 import InsertModal from '../components/Modais/Inserir/modal_inserir';
 import { EditarModal } from '../components/Modais/Editar/modal_editar';
-import Aluno from '../services/sqlite/Alunos';
-// import teste from '../services/Api/Alunos';
+import Aluno from '../services/Api/Alunos';
 import styles from './style';
 import logo from '../assets/image/logo.png';
 import backgrourd from '../assets/image/bk.png'
@@ -22,7 +21,9 @@ import Icon from 'react-native-vector-icons/AntDesign';
 const principal = ({ navigation }) =>{
     const [refreshing, setRefreshing] = useState(false);
     const [lista, setLista] = useState([]);
-
+    
+    const [offset] = useState(new Animated.ValueXY({x: 0, y: 100}));
+    const [opacity] = useState(new Animated.Value(0));
     const [spinAnim] = useState(new Animated.Value(0));
     const spin = spinAnim.interpolate({
       inputRange: [0, 1],
@@ -42,16 +43,26 @@ const principal = ({ navigation }) =>{
     
     useEffect(() => {
       deleteAluno(),
-      Animated.loop(
-        Animated.timing(spinAnim, {
-          toValue: 1,
-          duration: 50000,
-          easing: Easing.linear,
-          useNativeDriver: false,
+      Animated.parallel([
+        Animated.spring(offset.y, {
+          toValue: 0,
+          speed: 3,
+          bounciness: 15
         }),
-      ).start();
+        Animated.timing(opacity, {
+          toValue: 1,
+          duration:1000,
+        }),
+        Animated.loop(
+          Animated.timing(spinAnim, {
+            toValue: 1,
+            duration: 30000,
+            easing: Easing.linear,
+            useNativeDriver: false,
+          }),
+        )
+      ]).start();
   
-
     }, []);
 
     useEffect(() => {
@@ -71,6 +82,7 @@ const principal = ({ navigation }) =>{
       alunos => console.log(alunos)
     )
 
+   
 
     return(
 
@@ -95,14 +107,17 @@ const principal = ({ navigation }) =>{
             <View  style={styles.main}>
               <View style={styles.top}>
                 <Text style={styles.subtitle}>Alunos do curso</Text>
-                <InsertModal />
+                  <InsertModal />
               </View>
               
               <FlatList 
                 data ={lista}
                 renderItem={({item}) =>  
-                  <View
-                    style={styles.userCard}
+                  <Animated.View
+                    style={[styles.userCard, { 
+                      opacity: opacity,
+                      transform:[{ translateY: offset.y }]
+                    }]}
                     
                   >
                     
@@ -124,10 +139,10 @@ const principal = ({ navigation }) =>{
                         size={30} 
                         color="#fff"
                         style={styles.deletar}
-                        onPress={()=> deleteAluno(item.id)}
+                        onPress={()=> deleteAluno(item._id)}
                       />
                     </View>
-                  </View>
+                  </Animated.View>
                 }
 
               />

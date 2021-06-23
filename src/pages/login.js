@@ -16,6 +16,8 @@ import logo from '../assets/image/logo.png';
 import backgrourd from '../assets/image/giphy2.gif';
 
 
+
+
 const login = ({ navigation }) =>{
 
   const { control, handleSubmit, formState: { errors } } = useForm();
@@ -59,8 +61,12 @@ const login = ({ navigation }) =>{
     "senha": senha
     })
     .then(response =>{
-      if(response.data){
-        navigation.navigate('Principal')
+      tk = response.data.token
+      if(tk != null){
+        navigation.navigate('Principal');
+      }
+      else{
+        alert("invalido");
       }
       
     })

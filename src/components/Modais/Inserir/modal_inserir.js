@@ -4,17 +4,23 @@ import { useForm, Controller } from "react-hook-form"
 import Icon from 'react-native-vector-icons/AntDesign';
 import styles from './style';
 import Aluno from '../../../services/sqlite/Alunos';
+import teste from '../../../services/Api/Alunos';
 
 
 
 export default function(){
     const [visible, setVisible] = useState(false)
     const { control, handleSubmit, formState: { errors } } = useForm();
-
     
+    
+
+ 
+
+
+
     const onSubmit = data => 
-        Aluno.create( {nome:`${data.nome}`, nota1:`${data.nota1}`, nota2:`${data.nota2}`} )
-        .then( id => console.log('aluno created with id: '+ id),
+        teste.create( {nome:`${data.nome}`, nota1:`${data.nota1}`, nota2:`${data.nota2}`} )
+        .then( obj => console.log('aluno created: '+ obj),
                      setVisible(false))
         .catch( err => console.log(err) );
 
