@@ -2,9 +2,9 @@ import axios from 'axios';
 import token from '../../pages/login';
 
 const Api = axios.create({
-    baseURL: "http://192.168.0.105:3000",
+    baseURL: "http://192.168.0.104:3000",
     
-    headers: { "permitir" :`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDI0MmE2Y2EzNDBkNDJkY2QxZTcxNCIsImlhdCI6MTYyNDM5ODMzMSwiZXhwIjoxNjI0NDg0NzMxfQ._Z3c2GcFzV4PGFxXuCaSG2z-Hswa6oD-KRZXv-9cEOU` }
+    headers: { "permitir" :`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDMyNWMzZGI2N2QyNTE2OGE3MjgzNiIsImlhdCI6MTYyNDQ4NjMwNiwiZXhwIjoxNjI0NTcyNzA2fQ.Q9bmuenYEZjz9tduTD7fT6rxUoWnEmhHd_wLktVsaRE` }
 
 })
 
