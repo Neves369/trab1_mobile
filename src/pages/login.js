@@ -16,6 +16,7 @@ import axios from 'axios';
 import styles from './style';
 import logo from '../assets/image/logo.png';
 import backgrourd from '../assets/image/giphy2.gif';
+// import { userToken } from '../services/Api/Auth';
 
 
 
@@ -85,25 +86,20 @@ const login = ({ navigation }) =>{
   }
 
 
-  const onSubmit = data => {
+  const onSubmit = async(data) => {
     const { email, senha } = data
 
-    response = axios.post ("http://192.168.0.104:3000/auth/authenticate", 
+    response = await axios.post ("http://192.168.0.104:3000/auth/authenticate", 
     {
     "email": email,
     "senha": senha
     })
-    .then(response =>{
-      tk = response.data.token
-      if(tk != null){
-        navigation.navigate('Principal');
-      }
-   
+    
+    if(response.data.token != null){
+      // userToken(response.data.token)
+      navigation.navigate('Principal');
       
-    })
-    .catch(error => {
-      console.log(error)
-    })   
+    }
     
   }
 
