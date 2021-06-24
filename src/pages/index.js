@@ -3,6 +3,7 @@ import {
   Text,
   View,
   ScrollView,
+  StatusBar,
   RefreshControl,
   FlatList,
   Animated,
@@ -85,9 +86,10 @@ const principal = ({ navigation }) =>{
    
 
     return(
-
+        
         <ImageBackground source={backgrourd}  style={styles.container}>
-          
+          <StatusBar backgroundColor = "#4a5059"/>
+
           <ScrollView
             contentContainerStyle={styles.scrollView}
             refreshControl={

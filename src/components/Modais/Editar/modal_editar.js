@@ -29,6 +29,7 @@ export const EditarModal = (item)=>{
             />
             <View style={styles.container}>
                 <Modal
+                    animationType='slide'
                     visible={visible}
                     transparent={true}
                     style={styles.modal}

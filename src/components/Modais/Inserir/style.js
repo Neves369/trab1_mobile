@@ -16,8 +16,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   modalInsert:{
-    marginVertical: 280,
-
+    marginVertical: 227,
     marginHorizontal: 20,
     height: 420,
     borderRadius: 8,

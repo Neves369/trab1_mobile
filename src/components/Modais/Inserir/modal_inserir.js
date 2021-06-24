@@ -11,12 +11,6 @@ import teste from '../../../services/Api/Alunos';
 export default function(){
     const [visible, setVisible] = useState(false)
     const { control, handleSubmit, formState: { errors } } = useForm();
-    
-    
-
- 
-
-
 
     const onSubmit = data => 
         teste.create( {nome:`${data.nome}`, nota1:`${data.nota1}`, nota2:`${data.nota2}`} )
@@ -35,9 +29,9 @@ export default function(){
             />
             <View style={styles.container}>
                 <Modal
+                    animationType='slide'
                     visible={visible}
-                    transparent={true}
-                    
+                    transparent={true}   
                 >
                     <View style={styles.modalInsert}>
                         <View style={styles.header}>

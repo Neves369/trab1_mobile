@@ -15,11 +15,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   modalEdit:{
-    marginVertical: 190,
+    marginVertical: 227,
     marginHorizontal: 20,
     height: 420,
     alignItems: 'center',
-    borderRadius: 6,
+    borderRadius: 8,
     backgroundColor: '#d8e2dc',
   },
   header:{

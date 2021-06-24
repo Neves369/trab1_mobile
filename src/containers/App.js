@@ -10,7 +10,10 @@ const Stack = createStackNavigator();
 function App() {
   return (
     <NavigationContainer theme={DarkTheme}>
-      <Stack.Navigator initialRouteName="Login">
+      <Stack.Navigator 
+        initialRouteName="Login" 
+        screenOptions={{headerShown: false}}
+      >
         <Stack.Screen name="Login" component={Login} />
         <Stack.Screen name="Principal" component={Principal} />
         
