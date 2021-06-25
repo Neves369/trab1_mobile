@@ -1,5 +1,13 @@
 <div align="center">
   <h1>React-Native Course</h1>
+ 
+   <p>Screens</p>
+  
+  ![1624582401423](https://user-images.githubusercontent.com/63128431/123353175-515e8a80-d537-11eb-9d8d-62feb27850d6.gif)
+  ![1624582401430](https://user-images.githubusercontent.com/63128431/123353230-6c30ff00-d537-11eb-80ad-6d4cfd3501b6.gif)
+  
+  
+  
   <p>application for educational purposes.</p>
   <p>Simple crud where the teacher can register students, add their grades or change them. </p>
   <p>As it is a react native app, I decided that the app is to register students' notes from a react native course.</p>
@@ -12,8 +20,8 @@
 <br>
 <br>
 
-
-#  Technologies
+>Status: Developing ⚠️
+#  📱 Technologies
 
   - [Node.js](https://nodejs.org/en/)
   - [Expo](https://expo.io/)  
@@ -23,7 +31,7 @@
   
 
 
-##  Getting started
+## 💻 Getting started
 
 ### Requirements
 
@@ -65,7 +73,7 @@ $ expo start
 ```
 <br>
 
-##  License
+## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
