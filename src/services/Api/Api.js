@@ -3,9 +3,9 @@ import axios from 'axios';
 
 
 const Api = axios.create({
-    baseURL: "http://192.168.0.104:3000",
+    baseURL: "https://backend-curso-react-native.herokuapp.com",
     
-    headers: { "permitir":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDMyNWMzZGI2N2QyNTE2OGE3MjgzNiIsImlhdCI6MTYyNDU0MzU5MiwiZXhwIjoxNjI0NjI5OTkyfQ.6Lx2RCGWYwf0Ut5EA6eueT51lC2Ta3TYVOrS9tZZjlg` }
+    headers: { "permitir":`Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwZDMyNWMzZGI2N2QyNTE2OGE3MjgzNiIsImlhdCI6MTYyNjgzMTc1MCwiZXhwIjoxNjI2OTE4MTUwfQ.rgX56o9UnQj1EkOGabMvNj5E5zIdJLSS6Co5MwBp7NM` }
 
 })
 

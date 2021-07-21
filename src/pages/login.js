@@ -89,7 +89,7 @@ const login = ({ navigation }) =>{
   const onSubmit = async(data) => {
     const { email, senha } = data
 
-    response = await axios.post ("http://192.168.0.104:3000/auth/authenticate", 
+    response = await axios.post ("https://backend-curso-react-native.herokuapp.com/auth/authenticate", 
     {
     "email": email,
     "senha": senha
